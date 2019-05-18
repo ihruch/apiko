@@ -1,0 +1,8 @@
+.todo-icon-del{
+    right: 30px !important;
+    cursor: pointer;
+}
+.completedTask{
+    text-decoration: line-through !important;
+    opacity: 0.6 !important;
+}
