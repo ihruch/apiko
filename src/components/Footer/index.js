@@ -4,18 +4,20 @@ import { Link } from 'react-router-dom';
 const styleUl = {
     display: "flex",
     listStyle: "none",
-    padding: 0
+    marginTop: "5px !important",
+    marginBottom: "5px !important",
+    justifyContent: "center"
 }
 const styleLi ={
-    margin: "0 14px 0 0",
+    flex: "0 0 15%",
+    textAlign: "center",
+    margin: "0 10px 0 0",
     border: "1px solid #ddd",
     padding: "7px 15px",
     borderRadius: "5px"
-
 }
 
 function Footer({routers}) {
-   
     return(
         <div >
             <ul style={styleUl}>

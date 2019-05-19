@@ -8,7 +8,6 @@ class Form extends Component {
     
     render(){
         const {innnerRef, ...props} = this.props
-            
         return (
             <form {...props} className="form-add-task">
                 <TextField

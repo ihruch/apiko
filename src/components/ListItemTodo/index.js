@@ -7,12 +7,13 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import "./style.css";
 
 function ListItemTodo (props){
-    console.log(props) 
-    const { items, onChange, onClick, todo} = props;
+    console.log('ListItemTodo PROPS', props) 
+    const { data, todo} = props;
+
     return (
-        <ListItem key={todo.id} role={undefined}  button className={ todo.completed ? 'completedTask' : '' }  >
+        <ListItem  button className={ todo.completed ? 'completedTask' : '' }  >
             <Checkbox
-            onChange={() => onChange(todo.id)}
+            onChange={() => data.onChange(todo.id)}
             checked={todo.completed}
             color="primary"
             disableRipple
@@ -20,16 +21,10 @@ function ListItemTodo (props){
 
             <ListItemText primary={todo.title} />
 
-            <ListItemSecondaryAction className="todo-icon-del" onClick={() => onClick(todo.id)}>
+            <ListItemSecondaryAction className="todo-icon-del" onClick={() => data.onClick(todo.id)}>
                 <DeleteOutlinedIcon aria-label="Delete"></DeleteOutlinedIcon>
             </ListItemSecondaryAction>
         </ListItem>
     );
 }
 export default ListItemTodo;
-/*
-items
-onChange
-onClick
-todo
-*/
