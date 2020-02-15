@@ -3,7 +3,7 @@ import React from 'react';
 import s from './Header.module.scss';
 import { routes } from '../../scenes/router';
 import { Link, withRouter } from 'react-router-dom';
-import {compose, withHandlers} from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import Api  from './../../Api';
 
 function Header({handleLogout}) {
