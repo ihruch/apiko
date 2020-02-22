@@ -1,13 +1,22 @@
 import React from "react";
-import s from './Home.module.scss';
+import { Route, Switch } from 'react-router-dom';
+import { routes } from "./../router";
+
+import LatestList from './../LatestList/LatestListContainer';
 import Header from './../../components/Header/Header';
+
+import s from './Home.module.scss';
+
 
 function Home(){
   return(
     <div className={s.container}>
-      <Header />
-      <hr/>
-      HOME PAGE
+      <Header></Header>
+
+      <Switch>
+        <Route exact path={routes.home} component={LatestList} />
+      </Switch>  
+      
     </div>
   );
 }

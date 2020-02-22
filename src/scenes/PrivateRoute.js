@@ -6,8 +6,13 @@ import { routes } from './router';
 
 function PrivateRoute({component: Component, ...rest}) {
     return(
-    <Route {...rest} 
-        render={ (props) => Api.Auth.isLoggedIn? <Component {...props}/>: <Redirect to={routes.home} /> }
+    <Route 
+        {...rest} 
+        render={ (props) =>     
+                Api.Auth.isLoggedIn? 
+                    <Component {...props}/> 
+                : 
+                    <Redirect to={routes.home} /> }
         />  
     ) 
 }

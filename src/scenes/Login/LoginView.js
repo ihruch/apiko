@@ -9,17 +9,18 @@ function Login({ fields, isLoading, handleLogin, handleFieldsChange }) {
  return(
     <div>
         <Input  
-          fields={fields}
           type="email"
           name="email"
           placeholder="example@gmail.com"
+          value={fields.email}         
           textLabel="EMAIL"
           onChange={handleFieldsChange}
         />
         <Input 
-          fields={fields} 
+         
           type="password"
-          name="password"    
+          name="password" 
+          value={fields.password}   
           textLabel="PASSWORD"
           onChange={handleFieldsChange}
         />
