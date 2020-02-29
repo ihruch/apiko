@@ -17,25 +17,9 @@ const mapDispatchToProps = {
 const enhance = compose(
     withRouter,
     connect(mapStateToProps, mapDispatchToProps),
-    withStateHandlers(
-        { 
-            fields: {
-                email: '',
-                password: ''
-            }
-        },{
-            handleFieldsChange: (state) => (fieldName, value) => ({
-                ...state,
-                fields: {
-                    ...state.fields,
-                    [fieldName]: value
-                }
-            })
-        }
-    ),
     withHandlers({
-        handleLogin: (props) => async () => {
-            await props.login(props.fields);
+        handleLogin: (props) => async (values) => {
+            await props.login(values);
             props.history.push(routes.home); 
         }
     })
