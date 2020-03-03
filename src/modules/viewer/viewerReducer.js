@@ -43,5 +43,12 @@ export default handleActions({
             error: action.payload, 
             isError: true
         }
+    }),
+
+    [actions.logout]: (state, action) => ({
+        ...state,
+        user: null
     })
+
+
 }, INITIAL_STATE);

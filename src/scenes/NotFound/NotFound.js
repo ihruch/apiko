@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './NotFound.module.scss';
+// import s from './NotFound.module.scss';
 
 function NotFound() {
   return (

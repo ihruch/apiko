@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import FormInput from './../FormInput/FormInput';
-import s from './FormContainer.module.scss'
-import  { Formik, Form, Field, FieldArray, ErrorMessage } from 'formik';
+import  { Formik, Form, FieldArray } from 'formik';
 
 class FormContainer extends Component {
   constructor(props){
@@ -67,7 +66,7 @@ class FormContainer extends Component {
 export default FormContainer;
 
 
-{/* {
+/* {
       ({ errors, touched, values, handleChange, handleSubmit}) => {
       // console.log({ errors, touched, values, handleChange });
       return (
@@ -118,4 +117,4 @@ export default FormContainer;
           </Form>
       );
   }
-    } */ }
+    } */ 

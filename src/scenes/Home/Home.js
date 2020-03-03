@@ -10,7 +10,7 @@ import s from './Home.module.scss';
 
 function Home(){
   return(
-    <div className={s.container}>
+    <div className={s.containe}>
       <Header></Header>
 
       <Switch>

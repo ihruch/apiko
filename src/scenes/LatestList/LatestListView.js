@@ -1,18 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import s from './LatestList.module.scss'
+// import s from './LatestList.module.scss'
 
 const LatestListView = ({ list, isLoading }) => {
     
     if(isLoading) {
-        return <div> Loading...</div> 
+        return <div>Loading...</div> 
     }
 
     return (
         <div>
-            {
-                list.map(({id, title}) => <div key={id}>{title}</div> ) 
-            }
+        { 
+            list.map(({id, title}) => <div key={id}>{title}</div> ) 
+        }
         </div>
     )
 }

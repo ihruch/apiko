@@ -1,8 +1,8 @@
 
 import React from 'react';
-import s from './Login.module.scss';
+//import s from './Login.module.scss';
 
-import {FormContainer } from './../../components/Form';
+import { FormContainer } from './../../components/Form';
 import * as yup from 'yup'; 
 
 const initialValue = {

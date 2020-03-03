@@ -6,15 +6,14 @@ import Auth from './Auth/Auth.js';
 import Inbox from './Inbox/Inbox';
 import PrivateRoute from './PrivateRoute';
 
-
 export const routes = {
   home: '/',
   login: '/auth/login',
   register: '/auth/register',
+  addProduct: '/add-product',
+  auth: '/auth',
   inbox: '/inbox',
 };
-
-
 
 export default function Router(){
     return(

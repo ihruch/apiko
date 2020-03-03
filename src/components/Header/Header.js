@@ -5,8 +5,10 @@ import { routes } from '../../scenes/router';
 import { Link, withRouter } from 'react-router-dom';
 import { compose, withHandlers } from 'recompose';
 import Api  from './../../Api';
+import { connect } from 'react-redux';
+import { viewerActions } from './../../modules/viewer';
 
-function Header({handleLogout}) {
+function Header ({handleLogout}) {
   return(
     <header className={s.header}>
       <div className={s.left}>
@@ -14,11 +16,10 @@ function Header({handleLogout}) {
       </div>
 
       <div className={s.right}>
-        {
-          Api.Auth.isLoggedIn ?
-            <button type="button" onClick={handleLogout}> Logout</button>
+        { Api.Auth.isLoggedIn ?
+          <button type="button" onClick={handleLogout}> Logout</button>
           :
-            <Link to={routes.login}> Login </Link>
+          <Link to={routes.login}> Login </Link>
         }
       </div>
 
@@ -26,12 +27,20 @@ function Header({handleLogout}) {
   );
 }
 
+const mapDispatchToProps = {
+  logoutAction: viewerActions.logout
+};
+
 const enhancer = compose(
   withRouter,
+  connect(null, mapDispatchToProps),
   withHandlers({
     handleLogout: (props) => () => {
+     
       Api.Auth.logout();
-      props.history.push(routes.home)
+      props.logoutAction();
+      props.history.push(routes.home);
+     
     },
   })
 );

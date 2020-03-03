@@ -11,7 +11,7 @@ const INITIAL_STATE = {
         isLoading: false,
         isError: false,
         error: null
-    }
+    }    
 }
 
 export default handleActions({
@@ -30,8 +30,7 @@ export default handleActions({
         login: {
             ...state.login, 
             isLoading: false
-        }
-       
+        },
     }),
     
     [ actions.login.error ]: ( state, action ) => ({
@@ -59,7 +58,7 @@ export default handleActions({
         register: {
             ...state.register, 
             isLoading: false
-        }
+        },
        
     }),
     
@@ -71,6 +70,6 @@ export default handleActions({
             error: action.payload, 
             isError: true
         }        
-    })
+    }),
 
 }, INITIAL_STATE);
