@@ -12,7 +12,7 @@ class FormContainer extends Component {
   }   
     
   render() {
-    console.log('FormContainer PROPS', this.props)
+    //console.log('FormContainer PROPS', this.props)
     const { initValues , validationSchema, handleLogin } = this.props;
   
     return(
@@ -20,7 +20,7 @@ class FormContainer extends Component {
         initialValues = {this.state.initValueFields}
         validationSchema = { validationSchema }
         onSubmit={ values => {
-          console.log('Formik values ', values);
+          //console.log('Formik values ', values);
           handleLogin(values);
         }}     
       >

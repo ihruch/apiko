@@ -7,10 +7,17 @@ const INITIAL_STATE = {
         isLoading: false,
         isError: false,
         error: null
+    },
+    addProduct: {
+        product: {},
+        isLoading: false,
+        isError: false,
+        error: null
     }
+
 }
 export default handleActions({
-    [ actions.fetchLatest.start ]: ( state, action ) => ({
+    [ actions.addProduct.start ]: ( state, action ) => ({
         ...state,
         latest: {
             ...state.latest,
@@ -34,8 +41,33 @@ export default handleActions({
             error: action.payload, 
             isError: true
         }
+    }),
+
+    // add new product
+    [ actions.addProduct.start ]: ( state, action ) => ({
+        ...state,
+        addProduct: {
+            ...state.addProduct,
+            isLoading: true,
+        }       
+    }),
+    
+    [ actions.addProduct.success ]: ( state, action ) => ({
+        ...state,
+        addProduct: {
+            ...state.addProduct,
+            isLoading: false, 
+            product: action.payload
+        }
+    }),
+    
+    [ actions.addProduct.error ]: ( state, action ) => ({
+        ...state,
+        addProduct: {
+            ...state.addProduct,
+            error: action.payload, 
+            isError: true
+        }
     })
-
-
 
 }, INITIAL_STATE)

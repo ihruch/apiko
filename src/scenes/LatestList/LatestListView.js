@@ -4,8 +4,7 @@ import React from 'react'
 const LatestListView = ({ list, isLoading }) => {
     
     if(isLoading) {
-        return <div>Loading...</div> 
-    }
+        return <div>Loading...</div>    }
 
     return (
         <div>
@@ -16,9 +15,7 @@ const LatestListView = ({ list, isLoading }) => {
     )
 }
 
-LatestListView.propTypes = {
-
-}
+LatestListView.propTypes = {}
 
 export default LatestListView
 

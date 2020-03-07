@@ -13,6 +13,11 @@ function Header ({handleLogout}) {
     <header className={s.header}>
       <div className={s.left}>
         <Link to={routes.home}> Marketplace </Link>
+        {" | "}
+        <Link to={routes.inbox}> inbox </Link>
+        {" | "}
+        <Link to={routes.addProduct}> Add new product </Link>
+
       </div>
 
       <div className={s.right}>

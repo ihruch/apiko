@@ -1,24 +1,22 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom'
-// import Api from '../Api';
 import { routes } from './router';
 import { connect } from 'react-redux';
 
 
-function PrivateRoute({component: Component, isLoggedOut,  ...rest}) {
-    console.log('PrivateRoute', isLoggedOut)
+const PrivateRoute = ({component: Component, ...rest}) => {
+    console.log('PrivateRoute rest', rest.viewer)
     return(
-    <Route 
-      {...rest} 
-      render={ props =>    
-          ( isLoggedOut )? <Component {...props} />  :  <Redirect to={routes.home} /> 
-      }
-    />  
-    ) 
+      <Route 
+        {...rest} 
+        render={ (props) =>    
+            rest.viewer ? <Component {...props} />  :  <Redirect to={routes.login} /> 
+        }
+      />  
+    );
 }
 
-//export default PrivateRoute;
+// export default PrivateRoute;
 
-const mapStateToProps = state => {  return {isLoggedOut: state.viewer.user } }
-
-export default connect( mapStateToProps, null)(PrivateRoute);
+const mapStateToProps = state => ({viewer: state.viewer.user })
+export default connect(mapStateToProps)(PrivateRoute);

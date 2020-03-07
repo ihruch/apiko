@@ -10,12 +10,12 @@ export function init() {
             // await new Promise(resolve => setTimeout(resolve, 3000)) ;  ПРОСТО ПРОВЕРКА 
             
             //при запуске приложения инициализируем токен если она есть в localstorage
-            await Api.init();
+            Api.init();
 
             // Также при инициализации приложенеия фетчим юзера если все ок есть юзер то
             // приложение загружается если нет получаем ошибку
             await dispatch( viewerOperations.fetchViewer());
-            
+           
             dispatch(actions.initialization.success());
 
         } catch(error){

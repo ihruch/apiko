@@ -16,6 +16,7 @@ function Auth() {
         {Api.Auth.isLoggedIn && <Redirect to={routes.home} />}
         <Route path={routes.login} component={Login} />
         <Route path={routes.register} component={Register} />
+        <Redirect from={routes.auth} to={routes.login} />
       </Switch>
     </div>
 

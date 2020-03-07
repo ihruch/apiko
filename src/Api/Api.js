@@ -1,11 +1,12 @@
 import axios from 'axios';
+import { addProduct } from '../modules/products/productsOperations';
 
 const urls = {
   login:     '/api/auth/login',
   register:  '/api/auth/register',
   getViewer: '/api/account/user',
   productsLatest: '/api/products/latest',
-
+  addProduct: '/api/products',
 }
 
 export const Auth = {
@@ -18,14 +19,13 @@ export const Auth = {
   setToken(token) {
     this._token = token;
     this._storeToken();
-    this._setTokenToAxious(token);
+    this._setTokenToAxious();
   },
 
   init(){
     try {
       const token = window.localStorage.getItem('token');
       this._token = JSON.parse(token);
-      
       this._setTokenToAxious(token);
     } catch (error) {
       console.error(error);
@@ -54,8 +54,10 @@ export const Auth = {
   },
 
   _setTokenToAxious(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    axios.defaults.headers.common.Authorization = `Bearer ${this._token}`;
   }
+
 
 }//END 
 
@@ -64,7 +66,7 @@ export function init(){
 }
 
 export const Viewer = {
-  get(){
+  getViewer() {
     return axios.get(urls.getViewer);
   }
 }// end
@@ -72,5 +74,9 @@ export const Viewer = {
 export  const Products = {
   getLatest() {
     return axios.get(urls.productsLatest);
+  },
+
+  addProduct(body) {
+    return  axios.post(urls.addProduct, body);
   }
 }

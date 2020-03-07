@@ -19,21 +19,21 @@ export default handleActions({
             error: null, 
             isError: false  
         }
-        
     }),
-    
+
     [ combineActions(
         actions.fetchViewer.success, 
         authActions.login.success, 
-        authActions.register.success) ]: ( state, action ) => ({
+        authActions.register.success
+    )]: ( state, action ) => ({
         ...state,
         fetchViewer: {
             ...state.fetchViewer, 
             isLoading: false
         },
         user: action.payload
+    }),     
         
-    }),
     
     [ actions.fetchViewer.error ]: ( state, action ) => ({
         ...state,
