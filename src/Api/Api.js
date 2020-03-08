@@ -77,6 +77,7 @@ export  const Products = {
   },
 
   addProduct(body) {
-    return  axios.post(urls.addProduct, body);
+    console.log('body addProduct', body )
+    return axios.post(urls.addProduct, body);
   }
 }

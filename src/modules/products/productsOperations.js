@@ -17,16 +17,17 @@ export function fetchLatest() {
 
 }
 
-export function addProduct() {
+export function addProduct(body) {
 
     return async function(dispatch) {
         try {
             dispatch(actions.addProduct.start());
             
-            const res = await Api.Products.addProduct();
+            const res = await Api.Products.addProduct(body);
             dispatch(actions.addProduct.success(res.data));
 
         } catch(error){
+            console.error(error.message);
             dispatch(actions.addProduct.error(error));
         }        
     }

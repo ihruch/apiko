@@ -17,11 +17,13 @@ const INITIAL_STATE = {
 
 }
 export default handleActions({
-    [ actions.addProduct.start ]: ( state, action ) => ({
+    [ actions.fetchLatest.start ]: ( state, action ) => ({
         ...state,
         latest: {
             ...state.latest,
             isLoading: true,
+            isError: false,
+            error: null
         }       
     }),
     

@@ -1,33 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import  { Field, ErrorMessage } from 'formik';
 import classNames from 'classnames';
 
-import s from './FormInput.module.scss';
+import s from './FormTextarea.module.scss';
 
-const FormInput = ({
+const FormTextarea = ({
         value, 
-        handleChange, 
-        errors, 
+        handleChange,
         touched, 
-        dirty,
-        ...rest }) => {
+        errors, 
+        ...rest
+        }) => {
 
     const classes = classNames(
         'form-control',
         { isInvalid: errors[rest.name] && touched[rest.name] }
-    );
-        console.log('rest', rest)
+    ); 
+    
     return (
         <div className={s.formGroup} >
             <label htmlFor={rest.name}>{rest.label}</label>
-            <Field
-                name={rest.name}
-                type={rest.type}
+            <Field 
+                rows="4"
+                maxLength={rest.maxLength}
+                name={rest.name} 
+                as={rest.tag} 
+                placeholder={rest.placeholder}
                 value={value}
                 onChange={handleChange}
                 className={ classes }
-                placeholder={rest.placeholder}
+                
             />
             <ErrorMessage
                 name={rest.name}
@@ -38,8 +41,7 @@ const FormInput = ({
     );
 }
 
-FormInput.propTypes = {}
+FormTextarea.propTypes = {}
 
-export default FormInput
-
+export default FormTextarea;
 

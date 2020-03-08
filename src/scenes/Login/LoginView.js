@@ -5,7 +5,7 @@ import React from 'react';
 import { FormContainer } from './../../components/Form';
 import * as yup from 'yup'; 
 
-const initialValue = {
+const initialValues = {
   fields: [
     {
       name: 'email',
@@ -32,8 +32,8 @@ const Login = ({ handleLogin }) => {
   return (
     <FormContainer 
       validationSchema = {validationSchema}
-      initValues={initialValue} 
-      handleLogin={handleLogin}
+      initValues={initialValues} 
+      handleSubmit={handleLogin}
     >   
     </FormContainer>
   );
