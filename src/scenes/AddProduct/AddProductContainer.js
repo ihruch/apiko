@@ -15,7 +15,6 @@ const enhancer = compose(
     connect(null, mapDispatchToPRops),
     withHandlers({
         handleAddProduct: (props) => async (values) => {
-            console.log('handleAddProduct', values)
             await props.addNewProduct(values);
             props.history.push(routes.home); 
         }

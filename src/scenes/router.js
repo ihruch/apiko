@@ -12,15 +12,16 @@ export const routes = {
   auth: '/auth',
   login: '/auth/login',
   register: '/auth/register',
-  addProduct: '/add-product',
   inbox: '/inbox',
+  addProduct: '/add-product',
+  product: '/products/:id',
 };
 
 export default function Router(){
     return(
       <BrowserRouter>
         <Switch>
-          <Route exact path={routes.home} component={Home} />
+          <Route path={routes.home} component={Home} />
           <Route path={routes.auth} component={Auth} />
           <Route path={routes.addProduct} component={AddProduct} />
           <PrivateRoute path={routes.inbox} component={Inbox}/>

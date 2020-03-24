@@ -17,7 +17,7 @@ const FormInput = ({
         'form-control',
         { isInvalid: errors[rest.name] && touched[rest.name] }
     );
-        console.log('rest', rest)
+       
     return (
         <div className={s.formGroup} >
             <label htmlFor={rest.name}>{rest.label}</label>

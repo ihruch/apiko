@@ -13,6 +13,11 @@ const INITIAL_STATE = {
         isLoading: false,
         isError: false,
         error: null
+    },
+    product: {
+        isLoading: false,
+        isError: false,
+        error: null
     }
 
 }
@@ -32,7 +37,7 @@ export default handleActions({
         latest: {
             ...state.latest,
             isLoading: false, 
-            items: action.payload
+            items: action.payload.result
         }
     }),
     
@@ -67,6 +72,32 @@ export default handleActions({
         ...state,
         addProduct: {
             ...state.addProduct,
+            error: action.payload, 
+            isError: true
+        }
+    }),
+
+    // fetch product 
+    [ actions.fetchProduct.start ]: ( state, action ) => ({
+        ...state,
+        product: {
+            ...state.product,
+            isLoading: true,
+        }       
+    }),
+    
+    [ actions.fetchProduct.success ]: ( state ) => ({
+        ...state,
+        product: {
+            ...state.product,
+            isLoading: false, 
+        }
+    }),
+    
+    [ actions.fetchProduct.error ]: ( state, action ) => ({
+        ...state,
+        product: {
+            ...state.product,
             error: action.payload, 
             isError: true
         }

@@ -7,6 +7,7 @@ const urls = {
   getViewer: '/api/account/user',
   productsLatest: '/api/products/latest',
   addProduct: '/api/products',
+  product: '/api/products',
 }
 
 export const Auth = {
@@ -77,7 +78,10 @@ export  const Products = {
   },
 
   addProduct(body) {
-    console.log('body addProduct', body )
     return axios.post(urls.addProduct, body);
+  },
+
+  getProduct(id){
+    return axios.get(`${urls.product}/${id}`)
   }
 }

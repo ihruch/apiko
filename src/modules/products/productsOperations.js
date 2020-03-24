@@ -1,5 +1,6 @@
 import * as actions from './productsActions';
-import Api from '../../Api';
+import {normalize} from 'normalizr';
+import Api, {schemas} from '../../Api';
 
 export function fetchLatest() {
 
@@ -8,10 +9,13 @@ export function fetchLatest() {
             dispatch(actions.fetchLatest.start());
             
             const res = await Api.Products.getLatest();
-            dispatch(actions.fetchLatest.success(res.data));
 
-        } catch(error){
-            dispatch(actions.fetchLatest.error(error));
+            let {result, entities} = normalize(res.data, schemas.ProductList);
+
+            dispatch(actions.fetchLatest.success({result, entities}));
+
+        } catch(error){            
+            dispatch(actions.fetchLatest.error(error.message));
         }        
     }
 
@@ -29,6 +33,25 @@ export function addProduct(body) {
         } catch(error){
             console.error(error.message);
             dispatch(actions.addProduct.error(error));
+        }        
+    }
+
+}
+
+export function fetchProduct(id) {
+
+    return async function(dispatch) {
+        try {
+            dispatch(actions.fetchProduct.start());
+            
+            const res = await Api.Products.getProduct(id);
+
+            let { entities } = normalize(res.data, schemas.Product);
+
+            dispatch(actions.fetchProduct.success({ entities }) );
+
+        } catch(error){
+            dispatch(actions.fetchProduct.error({ message: error.message }));
         }        
     }
 
