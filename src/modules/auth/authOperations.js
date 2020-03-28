@@ -32,7 +32,9 @@ export function register(body) {
 
             dispatch(actions.register.success(user));
         } catch(error){
-            dispatch(actions.register.error(error));
+
+            console.error("Error Registe: ", error.message)   
+            dispatch(actions.register.error({message: error.message }));
         }        
     }
 }

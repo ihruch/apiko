@@ -1,21 +1,48 @@
 import React, { Component } from 'react'
 import FormInput from './../FormInput/FormInput';
 import FormTextarea from './../FormTextarea/FormTextarea';
+import Button from './../../Button/Button';
 import  { Formik, Form, FieldArray } from 'formik';
 
 class FormContainer extends Component {
   constructor(props){
     super(props);
 
-    this.initFields = {}
-    props.initValues.fields.forEach( item => this.initFields[item.name] = '' ) 
-    this.state = { initValueFields: this.initFields }
+    this.initFields = {};
+    this.isIconFilds = {};
+
+    props.initValues.fields.forEach( item => {
+        this.initFields[item.name] = '';  
+        
+        if(item.icon) {
+          this.isIconFilds[item.name] = false;
+        }
+      }
+    ) 
+
+    this.state = { 
+      initValueFields: this.initFields,
+      iconFilds: this.isIconFilds
+    }
   }   
+
+  handleClickIcon = (evt) => {
+    const name = evt.target.getAttribute('name');
+
+    this.setState( state => {
+      return {       
+        iconFilds: {
+          ...state.iconFilds,
+         [name]: !state.iconFilds[name]
+        }        
+      }
+    })
+  }
     
   render() {
-    console.log('FormContainer PROPS', this.props)
-    const { initValues , validationSchema, handleSubmit } = this.props;
-    const { initValueFields } = this.state;
+    console.log('FormContainer PROPS', this.props);
+    const { initValues , validationSchema, handleSubmit, btnTitle, btnType } = this.props;
+    const { initValueFields, iconFilds} = this.state;
 
     return(
       <Formik
@@ -27,7 +54,7 @@ class FormContainer extends Component {
         }}     
       >
 
-      {({ errors, touched, dirty, values, handleChange }) => {
+      {({ errors, touched, dirty, values, handleChange}) => {
         //console.log( "errors, touched" , values);
         return (
           <Form>
@@ -55,6 +82,8 @@ class FormContainer extends Component {
                             errors={errors}
                             touched={touched}
                             dirty={dirty}
+                            isIcon={iconFilds[field.name]}
+                            handleClickIcon={this.handleClickIcon}
                             {...field}     
                           />
                       ))
@@ -64,10 +93,11 @@ class FormContainer extends Component {
                 </div>
               )}
             />
-              <div className="form-group">
+              {/* <div className="form-group">
                 <button type="submit" className="btn btn-primary mr-2">Login </button>                
                 <button type="reset" className="btn btn-secondary"> Reset </button>
-              </div>
+              </div> */}
+              <Button title={btnTitle} type={btnType} />
           </Form>
         )
       }}

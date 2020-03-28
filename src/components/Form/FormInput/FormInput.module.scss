@@ -1,21 +1,49 @@
 .formGroup {
+    font-family: Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    max-width: 250px;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    position: relative;
 
-    label{
+    & > input {
+        background: #F9FAFB;
+        border: 1px solid #DEDEE0;
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 58px;
+        width: 100%;
+
         font-size: 16px;
-        font-weight: 700;
+        line-height: 1.25;
+        padding: 0 13px;
     }
-    & > span {
-        font-size: 12px;
-        color: red;
-    }
-   
-    .isInvalid {
+    & > label {
+        font-size: 12px !important;
+        line-height: 14px;
         
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+    }
+    & >span {
+        font-size: 10px;
+        color: red;
+        position: absolute;
+        bottom: -12px;
+        left: 0;
+    }
+    & > i {
+        position: absolute;
+        border: px solid black;
+        display: inline-block;
+        height: 25px;
+        width: 25px;
+        top: 50%;
+        transform: translateY(-25%);
+        line-height: 25px;
+        text-align: center;
+        right: 10px;
+        cursor: pointer;
     }
 }
 

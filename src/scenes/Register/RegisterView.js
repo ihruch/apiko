@@ -1,14 +1,20 @@
 
 import React from 'react';
-import s from './Login.module.scss';
 import { routes } from './../router';
 import { Link } from 'react-router-dom';
+
 import { FormContainer } from './../../components/Form';
 import * as yup from 'yup'; 
+
+import s from './Register.module.scss';
 
 const initialValues = {
   fields: [
     {
+      name: 'fullName', 
+      type: 'text',
+      label: 'FULL NAME'
+    },{
       name: 'email',
       type: 'email',
       label: 'EMAIL'
@@ -17,24 +23,35 @@ const initialValues = {
       type: 'password',
       label: 'PASSWORD',
       icon: true
+    },{ 
+      name: 'passwordConfirm',
+      type: 'password',
+      label: 'PASSWORD AGAIN',
+      icon: true
     }
   ]
 }
 
+
 const validationSchema = yup.object().shape({
-      email: yup.string()
-          .email("Email is invalid")
-          .required("Email is required"),
-      password: yup.string()
-          .required("Email is required")
+  fullName: yup.string().required("Name is required"),        
+  email: yup.string()
+            .email("Email is invalid")
+            .required("Email is required"),       
+  password: yup.string().required('Password is required'),
+  passwordConfirm: yup.string()
+            .test('passwordConfirm', 'Passwords must be a match', function(value) {
+              return this.parent.password === value;
+            })
+            .required('Password is required'),
 })
 
-const Login = ({ handleSubmit }) => {
-
+const Register = ({ handleSubmit, isError }) => {
+  
   return (
     <div className={s.pageLogin}>
       <div className={s.wrapper}>
-
+        {isError &&  <div style={{color: "red"}}>ERROR </div>}  
         <div className={s.innerWrapper}> 
           <h2>Login</h2>
           <FormContainer 
@@ -48,7 +65,7 @@ const Login = ({ handleSubmit }) => {
         </div>
 
         <div className={s.secondPartForm}>
-          I have no account, <Link to={routes.register}>REGISTER NOW</Link>
+          I already have an account, <Link to={routes.login}>LOG IN</Link>
         </div>
 
       </div>     
@@ -57,6 +74,6 @@ const Login = ({ handleSubmit }) => {
     
 }
 
-export default Login;
+export default Register;
 
 

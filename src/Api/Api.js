@@ -37,6 +37,10 @@ export const Auth = {
       return axios.post(urls.login, body );
   },
 
+  register(body) {
+    return axios.post(urls.register, body );
+  },
+
   logout() {
     this._token = null;
     try {
@@ -55,9 +59,8 @@ export const Auth = {
   },
 
   _setTokenToAxious(token) {
-    // axios.defaults.headers.common.Authorization = `Bearer ${token}`;
     axios.defaults.headers.common.Authorization = `Bearer ${this._token}`;
-  }
+  },
 
 
 }//END 

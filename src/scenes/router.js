@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
 import Home from './Home/Home.js';
 import NotFound from './NotFound/NotFound'
 import Auth from './Auth/Auth.js';
@@ -18,10 +18,10 @@ export const routes = {
 };
 
 export default function Router(){
-    return(
+      return(
       <BrowserRouter>
         <Switch>
-          <Route path={routes.home} component={Home} />
+          <Route exact path={routes.home} component={Home} />
           <Route path={routes.auth} component={Auth} />
           <Route path={routes.addProduct} component={AddProduct} />
           <PrivateRoute path={routes.inbox} component={Inbox}/>

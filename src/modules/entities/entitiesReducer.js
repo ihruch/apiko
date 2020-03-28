@@ -12,7 +12,7 @@ const INITIAL_STATE = {
 function Reducer(state = INITIAL_STATE, action){
 
     if(action.payload && action.payload.entities) {
-        console.log('entities', action.payload.entities);
+       // console.log('entities', action.payload.entities);
 
         return Object.keys(action.payload.entities).reduce( (accState, key) => {
 
