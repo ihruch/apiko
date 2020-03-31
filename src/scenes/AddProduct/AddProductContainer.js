@@ -5,7 +5,6 @@ import { productsOperations } from './../../modules/products';
 import { withRouter } from 'react-router-dom';
 import { routes } from './../router';
 
-// const mapStateToProps = (state, props) => ({ });
 
 const mapDispatchToPRops = {
   addNewProduct: productsOperations.addProduct
@@ -17,6 +16,12 @@ const enhancer = compose(
         handleAddProduct: (props) => async (values) => {
             await props.addNewProduct(values);
             props.history.push(routes.home); 
+        },
+        goBack:(props) => (e) => {
+            if(e.target.getAttribute('data-popup')) {
+                e.stopPropagation();
+                props.history.goBack();
+            }
         }
     })     
 )

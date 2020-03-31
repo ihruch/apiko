@@ -1,6 +1,30 @@
 .header{
+  height: 70px;
+  background-color: whitesmoke;
+}
+
+.container {
+    max-width: 1184px;
+    width: 100%;;
+    margin: auto;   
     display: flex;
-    justify-content: space-between;
-    height: 70px;
-    background-color: whitesmoke;
+    flex-direction: column;
+   
+    
+}   
+.innerContainer {
+    max-width: 855px;
+    width: 100%;
+    margin: auto;
+    outline: 1px solid grey;
+}
+
+.topLine{
+    display: flex;
+    justify-content: space-between; 
+    outline: 1px solid grey;
+    margin-bottom: 15px;
+}
+.secondLine {
+
 }

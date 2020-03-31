@@ -4,6 +4,7 @@ import { Provider, connect } from 'react-redux';
 import { appOperations } from './modules/app';
 import store from './store/createStore';
 import Router from './scenes/router.js';
+
 import './style.scss';
 
 

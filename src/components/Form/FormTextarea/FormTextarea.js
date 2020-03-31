@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import  { Field, ErrorMessage } from 'formik';
 import classNames from 'classnames';
 
@@ -41,7 +40,6 @@ const FormTextarea = ({
     );
 }
 
-FormTextarea.propTypes = {}
 
 export default FormTextarea;
 

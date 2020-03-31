@@ -1,0 +1,43 @@
+.wrapperModal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.42);
+    
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    .modal {
+        max-width: 665px;
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 30px;        
+ max-width: 665px;
+        box-sizing: border-box;
+        width: 100%;
+        background: #fff;
+        padding: 15px 100px;
+        border-radius: 7px;
+    }
+}
+
+.wrapperNoModal {
+    position: relative;
+    top: 32px;
+    padding: 32px 0px;
+    max-width: 1136px;
+    width: 100%;
+    margin: auto;
+    background: #fff;
+    border-radius: 7px;
+
+    .innerNoModal{
+        max-width: 665px;
+        box-sizing: border-box;
+        width: 100%;
+        margin: auto;
+    }
+
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './Inbox.module.scss';
-import Api from './../../Api';
-import { routes } from './../router';
+// import s from './Inbox.module.scss';
+// import Api from './../../Api';
+// import { routes } from './../router';
 
 
 function Inbox() {

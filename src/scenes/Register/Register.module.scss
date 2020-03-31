@@ -32,4 +32,11 @@
         text-align: center;
         margin-bottom: 32px;
     }
+
+    .alert {
+       @extend .secondPartForm;
+       color: red; 
+       font-size: 18px;
+       margin-bottom: 21px;
+    }
 }

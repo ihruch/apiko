@@ -46,12 +46,19 @@ const validationSchema = yup.object().shape({
             .required('Password is required'),
 })
 
-const Register = ({ handleSubmit, isError }) => {
+const Register = ({ handleSubmit, isError, error }) => {
   
+  console.log("isError" , isError)
   return (
     <div className={s.pageLogin}>
       <div className={s.wrapper}>
-        {isError &&  <div style={{color: "red"}}>ERROR </div>}  
+
+        {isError &&  
+          <div className={s.alert}>
+           Такой email уже существует.
+         </div>  
+        }  
+
         <div className={s.innerWrapper}> 
           <h2>Login</h2>
           <FormContainer 

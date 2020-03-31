@@ -9,25 +9,34 @@ import { connect } from 'react-redux';
 import { viewerActions } from './../../modules/viewer';
 
 function Header ({handleLogout}) {
+
   return(
     <header className={s.header}>
-      <div className={s.left}>
-        <Link to={routes.home}> Marketplace </Link>
-        {" | "}
-        <Link to={routes.inbox}> inbox </Link>
-        {" | "}
-        <Link to={routes.addProduct}> Add new product </Link>
+      <div className={s.container}> 
 
+        <div className={s.topLine}>
+          <div className={s.left}>
+            <Link to={routes.home}> Marketplace </Link>
+            {" | "}
+            <Link to={routes.inbox}> inbox </Link>
+            {" | "}
+            <Link to={{ pathname: routes.addProduct, state: { modal: true } }}> Add new product </Link>
+          </div>
+
+          <div className={s.right}>
+            { Api.Auth.isLoggedIn ?
+              <button type="button" onClick={handleLogout}> Logout</button>
+              :
+              <Link to={routes.login}> Login </Link>
+            }
+          </div>
+        </div>
+
+        <div className={s.innerContainer}>
+          place for search bar
+        </div>
+         
       </div>
-
-      <div className={s.right}>
-        { Api.Auth.isLoggedIn ?
-          <button type="button" onClick={handleLogout}> Logout</button>
-          :
-          <Link to={routes.login}> Login </Link>
-        }
-      </div>
-
     </header>
   );
 }

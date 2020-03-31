@@ -1,4 +1,4 @@
-import { compose, withStateHandlers, withHandlers } from 'recompose';
+import { compose, withHandlers } from 'recompose';
 import { connect } from 'react-redux';
 import Login from './LoginView';
 import { authOperations } from '../../modules/auth';

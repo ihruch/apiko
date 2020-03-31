@@ -30,7 +30,6 @@ const FormInput = ({
                 onChange={handleChange}
                 className={ classes }
                 placeholder={rest.placeholder}
-                
             />
             
             { rest.icon && 
@@ -53,6 +52,3 @@ const FormInput = ({
 FormInput.propTypes = {}
 
 export default FormInput
-
-
-{/* <i class="far fa-eye-slash"></i> */}

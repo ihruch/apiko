@@ -40,7 +40,7 @@ class FormContainer extends Component {
   }
     
   render() {
-    console.log('FormContainer PROPS', this.props);
+    //console.log('FormContainer PROPS', this.props);
     const { initValues , validationSchema, handleSubmit, btnTitle, btnType } = this.props;
     const { initValueFields, iconFilds} = this.state;
 
@@ -49,7 +49,7 @@ class FormContainer extends Component {
         initialValues = {initValueFields}
         validationSchema = { validationSchema }
         onSubmit={ values => {
-          console.log('Formik values ', values);
+          //console.log('Formik values ', values);
           handleSubmit(values);
         }}     
       >

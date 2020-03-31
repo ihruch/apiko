@@ -17,11 +17,11 @@ const mapDispatchToPRops = {
 }
 
 const enhancer = compose(
+   
     withRouter,
     connect(mapStateToProps, mapDispatchToPRops),
     lifecycle({
-        componentDidMount() {  
-            
+        componentDidMount() { 
             if(!this.props.owner || !this.props.product){
                 this.props.fetchProduct(this.props.match.params.id);       
             }

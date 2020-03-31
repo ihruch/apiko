@@ -1,7 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import s from './AddProduct.module.scss'
-
 import { FormContainer } from './../../components/Form';
 import * as yup from 'yup'; 
 
@@ -53,16 +51,38 @@ const validationSchema = yup.object().shape({
         .positive('Price can"t be negative number')
 })
 
-const AddProductView = ({ handleAddProduct }) => {
-    return (
-        <div className="">
-          <FormContainer 
-            validationSchema = {validationSchema}
-            initValues={initialValues} 
-            handleSubmit={handleAddProduct}
-          />
+const AddProductView = ({ handleAddProduct, goBack, isModal }) => {
+    
+      if(isModal) {
+        return(
+          <div className={s.wrapperModal} data-popup="popup" onClick={(e) => goBack(e)}>
+            <div className={s.modal} >
+              <FormContainer 
+                validationSchema = {validationSchema}
+                initValues={initialValues} 
+                handleSubmit={handleAddProduct}
+                btnTitle="Continue"
+                btnType="submit"
+              />
+            </div>
+          </div>
+        ) 
+      }else {
+       return (
+        <div className={s.wrapperNoModal}>
+          <div className={s.innerNoModal}>
+            <FormContainer 
+              validationSchema = {validationSchema}
+              initValues={initialValues} 
+              handleSubmit={handleAddProduct}
+              btnTitle="Continue"
+              btnType="submit"
+            />
+          </div>
         </div>
-    )
+       )
+      }
+    
 }
 
 AddProductView.propTypes = {}

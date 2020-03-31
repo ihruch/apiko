@@ -4,6 +4,7 @@ import React from 'react'
 const ProductView = ({ product, isLoading, owner}) => {
     const shouldUpdate = isLoading || !owner;
 
+    console.log("Component ProductView");
     if(!product) {
         return <div>Loading...</div>
     }
