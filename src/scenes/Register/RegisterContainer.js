@@ -23,10 +23,6 @@ const enhance = compose(
             const {fullName, email, password} = values;
             
             await props.register({fullName, email, password});
-           
-            // if(!props.isError) { 
-            //     props.history.push(routes.home) 
-            // }
         }
     })
 );

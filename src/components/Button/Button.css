@@ -14,8 +14,13 @@
     box-shadow: none;
     outline: none;
     cursor: pointer;
+}
 
-    &:hover {
-        background-color: darken(#349A89, $amount:6);
-    }  
+.btn:hover {
+    background-color: darken(#349A89, $amount:6);
+} 
+
+.invers {
+    background-color: #fff;
+    color:  #349A89;
 }

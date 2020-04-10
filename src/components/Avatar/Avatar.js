@@ -33,7 +33,8 @@ const Avatar = ({viewer, circle, width, height, className, src, badge }) => {
                     width: `${width}px`,
                     lineHeight: `${height}px`,
                     textAlign: 'center',
-                    textTransform: 'uppercase'
+                    textTransform: 'uppercase',
+                    zIndex: '100'
                 }}
             >
                 {name.charAt(0)} {lastName && lastName.charAt(0)} 

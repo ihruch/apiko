@@ -40,6 +40,7 @@ export function addProduct(body) {
 export function fetchProduct(id) {
 
     return async function(dispatch) {
+        
         try {
             dispatch(actions.fetchProduct.start());
             

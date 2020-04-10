@@ -1,17 +1,66 @@
 import React from 'react'
-
+import s from './Product.module.scss';
+import Button from './../../components/Button/Button';
+import {Link} from 'react-router-dom';
+import {routes} from './../router';
 
 const ProductView = ({ product, isLoading, owner}) => {
     const shouldUpdate = isLoading || !owner;
 
-    console.log("Component ProductView");
+    console.log("Component ProductView", owner);
+
     if(!product) {
         return <div>Loading...</div>
     }
     return (
-        <div>
-           <p> title:  { product.title}   </p>
-           <p> author: { shouldUpdate? "Loading..." : owner.fullName} </p>
+        <div className={s.container} >
+            <div className={s.wrapper}> 
+                <div className={s.secProduct}>
+                    <div className={s.imgProduct}>
+                        <img src={product.photos[0]} alt={product.title}/>
+                        <div className={s.priceProduct}> <i className="fas fa-dollar-sign"></i>{product.price}</div>
+                    </div>
+                    <div className={s.infoProduct}>
+                        <h2 className={s.title}>{ product.title} </h2>
+                        <div className={s.location}><i className="fas fa-map-marker"></i>{product.location}</div>
+                        <div className={s.description}>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem   </div>
+                    </div>
+
+                </div>
+            
+                <div className={s.secUser}>
+                    <div className={s.avatar}>
+                        <div className={s.topLine}> </div>
+                        <div className={s.secLine}>
+                            <img src="https://www.fillmurray.com/72/72" alt="" />
+                            <div className={s.fullName}> 
+                               <Link to={routes.profile}> 
+                               { shouldUpdate? "Loading..." : owner.fullName} 
+                               </Link>
+                            </div>
+                            <div className={s.locationUser}> 
+                                 { shouldUpdate? "Loading..." : owner.fullName}
+                            </div>
+                        </div>
+                    </div>
+                    <Button 
+                        type="button" 
+                        height="47px" 
+                        width="259px" 
+                        className={s.btnChatSeller}
+                    > Chat with seller
+                    </Button>
+
+                    <Button 
+                        type="button" 
+                        height="47px"
+                        width="259px" 
+                        className={s.btnAddToFavorite}
+                        invers
+                    > <i className="far fa-heart"></i>Add to favorive
+                    </Button>
+                </div>
+            </div>
         </div>
     )
 }

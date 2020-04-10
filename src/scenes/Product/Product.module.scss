@@ -1,0 +1,131 @@
+.container {
+    max-width: 855px;
+    margin: 23px auto 0 ;
+    width: 100%;
+
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;  
+        font-family: Helvetica;
+          
+    }
+
+    .secProduct {
+        flex: 1;
+        margin-right: 15px;
+        outline: 1px solid #ccc;
+        position: relative;
+        
+        .imgProduct {
+            position: relative;
+            max-height: 415px;
+            overflow: hidden;
+            border-bottom: 1px solid #ccc;
+            img {
+                width: 100%;
+                height: auto;
+                max-height: px;
+                display: block;   
+            }
+        }
+        .infoProduct {
+            padding-top: 15px;
+            background-color: #fff;
+            padding: 12px 18px 9px;
+            .title{
+                font-size: 18.5px;
+                line-height: 21px;
+            }
+            .location{
+                font-size: 14.04px;
+                line-height: 33px;
+                color: rgba(123, 123, 123, 0.8);
+                i {
+                    margin-right: 5px;
+                }
+            }
+            .description{
+                border-top: 1px solid rgba(151, 151, 151, 0.166439);
+                padding-top: 12px;
+                font-size: 14.04px;
+                line-height: 24px;
+                color: #2B2B2B;
+            }
+
+        }
+        .priceProduct {
+            position: absolute;
+            right: 0;
+            bottom: -5px;
+            
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 22px;
+            padding: 10px 18px;
+            color: #fff;
+            background-color: #349A89;;
+            border-radius: 5px 0 0 0;
+
+        }
+    }
+
+    .secUser {
+        width: 259px;
+        .avatar{
+            margin-bottom: 18px;
+            background-color: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            .topLine {
+                height: 47px;
+                background-color: #349A89;
+            }
+            .secLine {
+                position: relative;
+                font-size: 15px;
+                line-height: 17px;
+                text-align: center;
+                
+                padding-top: 45px;
+                padding-bottom: 13px;
+
+                img {
+                    width: 72px;
+                    height: 72px;
+                    border-radius: 50%;
+                    display: block;
+                    position: absolute;
+                    top: -35px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                a {
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: #349A89;
+                }
+                .fullName {
+                    color: #2B2B2B;
+                }
+                .locationUser {
+                    color: rgba(43, 43, 43, 0.499918);
+                }
+
+            }
+         }   
+            
+        .btnChatSeller {
+            margin-bottom: 10px;
+        }
+        .btnAddToFavorite{
+            i {
+                margin-right: 10px;
+            }
+        }
+    }
+
+
+    
+}

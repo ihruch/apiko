@@ -6,7 +6,7 @@ import Auth from './Auth/Auth.js';
 import Inbox from './Inbox/Inbox';
 import PrivateRoute from './PrivateRoute';
 import AddProduct from './AddProduct/AddProductContainer';
-
+import Profile from './Profile/ProfileView';
 
 export const routes = {
   home: '/',
@@ -15,7 +15,8 @@ export const routes = {
   register: '/auth/register',
   inbox: '/inbox',
   addProduct: '/add-product',
-  product: '/products/:id'
+  product: '/products/:id',
+  profile: '/profile',
 };
 
 class SwitchRouters extends React.Component {
@@ -25,6 +26,7 @@ class SwitchRouters extends React.Component {
         <Switch >
           <Route path={routes.auth} component={Auth} />
           <PrivateRoute path={routes.inbox} component={Inbox}/>
+          <PrivateRoute path={routes.profile} component={Profile}/>
           <Route path={routes.addProduct} component={AddProduct} />
           <Route path={routes.home} component={Home} />
           <Route component={NotFound} />
