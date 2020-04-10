@@ -21,7 +21,7 @@ const enhance = compose(
     withHandlers({
         handleSubmit: props => async values => {
             const {fullName, email, password} = values;
-            console.log({fullName, email, password})
+            
             await props.register({fullName, email, password});
            
             // if(!props.isError) { 

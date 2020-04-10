@@ -48,7 +48,6 @@ const validationSchema = yup.object().shape({
 
 const Register = ({ handleSubmit, isError, error }) => {
   
-  console.log("isError" , isError)
   return (
     <div className={s.pageLogin}>
       <div className={s.wrapper}>

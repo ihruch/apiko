@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-    console.log('PrivateRoute rest', rest.viewer)
+    // console.log('PrivateRoute rest', rest.viewer)
     return(
       <Route 
         {...rest} 

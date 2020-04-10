@@ -1,0 +1,58 @@
+
+.blockPopover {
+    
+    font-family: Helvetica;
+    overflow: hidden;
+}
+.popSettings,
+.popEditProfile,
+.popLogout {
+    padding: 9px 15px;
+}
+
+.popSettingsTop {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+}
+.popSettingsInfo {
+    padding: 0 0 0 10px;
+}
+.popSettingsInfo h3 {
+    margin: 0;
+    font-size: 10px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: #000000;
+}
+.popSettingsInfo p {
+    margin: 0;
+    position: relative;
+    top: -5px;
+   
+    font-size: 10px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: #979797;
+}
+.popSettingsInfo div {
+    font-size: 10px;
+    line-height: 20px;
+    letter-spacing: 1px;
+    color: #349A89; 
+}
+
+.blockFooter {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #349A89;
+    cursor: pointer;
+}
+.popEditProfile {
+    border-bottom: 1px solid #E4E4E4;
+}

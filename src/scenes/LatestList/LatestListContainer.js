@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToPRops = {
     fetchLatest: productsOperations.fetchLatest
 }
+
 const enhancer = compose(
     connect(mapStateToProps, mapDispatchToPRops),
     lifecycle({

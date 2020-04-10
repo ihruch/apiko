@@ -1,0 +1,12 @@
+.wrapperList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+@media (max-width: 870px){
+    .wrapperList{
+        justify-content: center;
+    }
+}

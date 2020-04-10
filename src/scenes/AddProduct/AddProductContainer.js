@@ -4,7 +4,7 @@ import AddProductView from './AddProductView';
 import { productsOperations } from './../../modules/products';
 import { withRouter } from 'react-router-dom';
 import { routes } from './../router';
-
+import Api from './../../Api';
 
 const mapDispatchToPRops = {
   addNewProduct: productsOperations.addProduct
@@ -14,12 +14,13 @@ const enhancer = compose(
     connect(null, mapDispatchToPRops),
     withHandlers({
         handleAddProduct: (props) => async (values) => {
+         //  console.log('AddProductContainer', values)
             await props.addNewProduct(values);
             props.history.push(routes.home); 
         },
-        goBack:(props) => (e) => {
-            if(e.target.getAttribute('data-popup')) {
-                e.stopPropagation();
+        goBack:(props) => (event) => {
+            if(event.target.getAttribute('data-popup')) {
+                event.stopPropagation();
                 props.history.goBack();
             }
         }

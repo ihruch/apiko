@@ -1,3 +1,10 @@
+.styleInp {
+    background: #F9FAFB;
+    border: 1px solid #DEDEE0;
+    box-sizing: border-box;
+    border-radius: 5px;  
+}
+
 .formGroup {
     font-family: Helvetica, sans-serif;
     display: flex;
@@ -6,10 +13,7 @@
     position: relative;
 
     & > input {
-        background: #F9FAFB;
-        border: 1px solid #DEDEE0;
-        box-sizing: border-box;
-        border-radius: 5px;
+        @extend .styleInp;
         height: 58px;
         width: 100%;
 
@@ -46,5 +50,27 @@
         right: 10px;
         cursor: pointer;
     }
+    .addImg {
+        @extend .styleInp;
+        height: 100px;
+        position: relative;
+        padding: 0 13px;
+
+        > i {
+            font-size: 32px;
+            cursor: pointer;
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: #E4E4E4;
+            border-radius: 4px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        
+        }
+    }   
 }
+
 

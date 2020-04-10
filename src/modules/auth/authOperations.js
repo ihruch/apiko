@@ -8,7 +8,7 @@ export function login(body) {
             dispatch(actions.login.start());
             
             const res = await Api.Auth.login(body);
-            const { user, token } = res.data;  // т.к используется axios response приходит в "data"
+            const { user, token } = res.data;  
 
             Api.Auth.setToken(token);
 

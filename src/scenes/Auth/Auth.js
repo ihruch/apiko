@@ -5,11 +5,11 @@ import { connect } from 'react-redux';
 import { routes } from '../router';
 import Login from '../Login/LoginContainer';
 import Register from '../Register/RegisterContainer';
-import Header  from './../../components/Header/Header';
+import Header  from '../../components/Header/HeaderView';
 
 function Auth({viewer}) {
 
-  console.log('Coponent Auth', viewer);
+  //console.log('Coponent Auth', viewer);
   return (
     <div className={s.container}>
       <Header />

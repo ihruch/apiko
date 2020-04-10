@@ -3,6 +3,7 @@ import FormInput from './../FormInput/FormInput';
 import FormTextarea from './../FormTextarea/FormTextarea';
 import Button from './../../Button/Button';
 import  { Formik, Form, FieldArray } from 'formik';
+import Api from './../../../Api';
 
 class FormContainer extends Component {
   constructor(props){
@@ -22,12 +23,23 @@ class FormContainer extends Component {
 
     this.state = { 
       initValueFields: this.initFields,
-      iconFilds: this.isIconFilds
+      iconFilds: this.isIconFilds,
+      formData: null
     }
   }   
 
-  handleClickIcon = (evt) => {
-    const name = evt.target.getAttribute('name');
+  getImageData = (event) => {
+    let formData = new FormData();
+    formData.append('image', event.target.files[0]);
+    this.setState({formData: formData}) 
+  }
+  uploadImg = () => {
+    return Api.Upload.uploadImage(this.state.formData) ;     
+  }
+
+
+  handleClickIcon = (event) => {
+    let name = event.target.getAttribute('name');
 
     this.setState( state => {
       return {       
@@ -40,22 +52,27 @@ class FormContainer extends Component {
   }
     
   render() {
-    //console.log('FormContainer PROPS', this.props);
     const { initValues , validationSchema, handleSubmit, btnTitle, btnType } = this.props;
-    const { initValueFields, iconFilds} = this.state;
+    const { initValueFields, iconFilds, formData} = this.state;
 
     return(
       <Formik
         initialValues = {initValueFields}
         validationSchema = { validationSchema }
-        onSubmit={ values => {
-          //console.log('Formik values ', values);
+        onSubmit={ async values => {
+         //console.log('Formik values 1', values);
+         
+         if(formData) {
+           let imgUrl = await this.uploadImg();
+           let photos = imgUrl.data.split().splice(0,1);
+           values = {...values, photos} 
+         } 
           handleSubmit(values);
         }}     
       >
 
       {({ errors, touched, dirty, values, handleChange}) => {
-        //console.log( "errors, touched" , values);
+        
         return (
           <Form>
             <FieldArray 
@@ -79,6 +96,7 @@ class FormContainer extends Component {
                             field={field} 
                             value={values.name} 
                             handleChange={handleChange}
+                            getImageData={this.getImageData}
                             errors={errors}
                             touched={touched}
                             dirty={dirty}
@@ -93,11 +111,7 @@ class FormContainer extends Component {
                 </div>
               )}
             />
-              {/* <div className="form-group">
-                <button type="submit" className="btn btn-primary mr-2">Login </button>                
-                <button type="reset" className="btn btn-secondary"> Reset </button>
-              </div> */}
-              <Button title={btnTitle} type={btnType} />
+              <Button title={btnTitle} type={btnType} height='58px' width='100%'/>
           </Form>
         )
       }}

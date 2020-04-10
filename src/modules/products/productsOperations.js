@@ -31,7 +31,6 @@ export function addProduct(body) {
             dispatch(actions.addProduct.success(res.data));
 
         } catch(error){
-            console.error(error.message);
             dispatch(actions.addProduct.error(error));
         }        
     }

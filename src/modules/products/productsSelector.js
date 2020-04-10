@@ -5,6 +5,7 @@ const getProductEntities = state => state.entities.products;
 const getUserEntities = state => state.entities.users;
 const getLatestIds = state => state.products.latest.items;
 
+
 export const getLatest = createSelector(
     [getProductEntities, getLatestIds],
     (entities, ids) => ids.map(i => entities[i])

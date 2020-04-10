@@ -25,10 +25,9 @@ const initialValues = {
       placeholder: 'For example: Description iron man suit'
     },
     { 
-      name: 'addImage',
-      type: 'text',
+      name: 'photos',
+      type: 'file',
       label: 'PHOTOS',
-      placeholder: "https://www.ion.co/wp-content/uploads/2016/10/fall-beauty.jpg"
     },
     {
       name: 'price',
@@ -51,7 +50,7 @@ const validationSchema = yup.object().shape({
         .positive('Price can"t be negative number')
 })
 
-const AddProductView = ({ handleAddProduct, goBack, isModal }) => {
+const AddProductView = ({ handleAddProduct, goBack, isModal}) => {
     
       if(isModal) {
         return(
@@ -61,6 +60,7 @@ const AddProductView = ({ handleAddProduct, goBack, isModal }) => {
                 validationSchema = {validationSchema}
                 initValues={initialValues} 
                 handleSubmit={handleAddProduct}
+               
                 btnTitle="Continue"
                 btnType="submit"
               />
@@ -75,6 +75,7 @@ const AddProductView = ({ handleAddProduct, goBack, isModal }) => {
               validationSchema = {validationSchema}
               initValues={initialValues} 
               handleSubmit={handleAddProduct}
+             
               btnTitle="Continue"
               btnType="submit"
             />
