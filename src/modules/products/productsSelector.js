@@ -3,8 +3,25 @@ import { createSelector } from 'reselect'
 
 const getProductEntities = state => state.entities.products;
 const getUserEntities = state => state.entities.users;
-const getLatestIds = state => state.products.latest.items;
 
+const getLatestIds = state => state.products.latest.items;
+const getSellerData = state => state.products.seller;
+
+const sellerProductIds = state => state.products.sellerProducts.items;
+
+
+export const getSellerProducts = createSelector(
+    sellerProductIds,
+    ids => ids    
+);
+
+export const getSeller = createSelector(
+    (state, id) => {
+        const users = getUserEntities(state);
+        return users[id];
+    },
+    user => user
+);
 
 export const getLatest = createSelector(
     [getProductEntities, getLatestIds],
@@ -29,3 +46,5 @@ export const getProductOwner = createSelector(
     item => item
 
 );
+
+

@@ -17,6 +17,7 @@ export const routes = {
   addProduct: '/add-product',
   product: '/products/:id',
   profile: '/profile',
+  seller: '/users/:id'
 };
 
 class SwitchRouters extends React.Component {

@@ -18,7 +18,20 @@ const INITIAL_STATE = {
         isLoading: false,
         isError: false,
         error: null
-    }
+    },
+    seller: {
+        isLoading: false,
+        error: null,
+        isError: false,
+    },
+    sellerProducts: {
+        isLoading: false,
+        error: null,
+        isError: false,
+        items: [],
+    },
+    
+
 
 }
 export default handleActions({
@@ -101,6 +114,60 @@ export default handleActions({
             error: action.payload, 
             isError: true
         }
+    }),
+
+    // fetch seller 
+    [ actions.fetchSeller.start ]: ( state, action ) => ({
+        ...state,
+        seller: {
+            ...state.seller,
+            isLoading: true,
+        }       
+    }),
+    
+    [ actions.fetchSeller.success ]: ( state ) => ({
+        ...state,
+        seller: {
+            ...state.seller,
+            isLoading: false, 
+        }
+    }),
+    
+    [ actions.fetchSeller.error ]: ( state, action ) => ({
+        ...state,
+        seller: {
+            ...state.seller,
+            error: action.payload, 
+            isError: true
+        }
+    }),
+
+    //fetch seller products
+    [ actions.fetchSellerList.start ]: ( state, action ) => ({
+        ...state,
+        sellerProducts: {
+            ...state.sellerProducts,
+            isLoading: true,
+        }       
+    }),
+    
+    [ actions.fetchSellerList.success ]: ( state, action ) => ({
+        ...state,
+        sellerProducts: {
+            ...state.sellerProducts,
+            isLoading: false, 
+            items: action.payload.result.list
+        }
+    }),
+    
+    [ actions.fetchSellerList.error ]: ( state, action ) => ({
+        ...state,
+        sellerProducts: {
+            ...state.sellerProducts,
+            error: action.payload, 
+            isError: true
+        }
     })
+
 
 }, INITIAL_STATE)

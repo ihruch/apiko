@@ -11,7 +11,7 @@ export function fetchLatest() {
             const res = await Api.Products.getLatest();
 
             let {result, entities} = normalize(res.data, schemas.ProductList);
-
+           
             dispatch(actions.fetchLatest.success({result, entities}));
 
         } catch(error){            
@@ -38,7 +38,7 @@ export function addProduct(body) {
 }
 
 export function fetchProduct(id) {
-
+   
     return async function(dispatch) {
         
         try {
@@ -55,4 +55,40 @@ export function fetchProduct(id) {
         }        
     }
 
+}
+
+export function fetchSeller(id) {
+    
+    return async function(dispatch) {
+        try {
+            dispatch(actions.fetchSeller.start());
+
+            const res = await Api.Products.getSeller(id)
+
+            let { entities } = normalize(res.data, schemas.User);
+
+            dispatch(actions.fetchSeller.success({entities}));
+        } catch (error) {
+            dispatch(actions.fetchSeller.error({ message: error.message }))
+
+        }    
+    }
+}
+
+export function fetchSellerProducts(id) {
+
+    return async function(dispatch) {
+        try {
+            dispatch(actions.fetchSellerList.start());
+
+            const res = await Api.Products.getSellerProducts(id);
+
+            let { result, entities} = normalize(res.data, schemas.sellerList)
+           
+            dispatch(actions.fetchSellerList.success({ result, entities}));
+        } catch (error) {
+            dispatch(actions.fetchSellerList.error({message: error.message})); 
+        }
+    }
+    
 }

@@ -9,16 +9,14 @@ const randomColorbg = () =>{
 }
 
 const Avatar = ({viewer, circle, width, height, className, src, badge }) => {
-    console.log('Avatart', {viewer});
-
     const classes = classNames(
         className,
         {isCircle: circle}
     );
 
-    if(!src) {
-        src = `https://via.placeholder.com/${width}×${height}/FFFF00/000000?Text=AV`
-    }
+    // if(!src) {
+    //     src = `https://via.placeholder.com/${width}×${height}/FFFF00/000000?Text=AV`
+    // }
     const color = `rgb(${randomColorbg()},${randomColorbg()},${randomColorbg()}`;
     
     if(badge) {
@@ -40,14 +38,14 @@ const Avatar = ({viewer, circle, width, height, className, src, badge }) => {
                 {name.charAt(0)} {lastName && lastName.charAt(0)} 
             </div>
         )
-    } else {
+    }else {
         return (
             <img 
-                scr={src}
+                src={src}
                 className={classes}
                 width={width}
                 height={height}
-                alt={viewer.fullname}
+                alt="img"
                
             />
         )

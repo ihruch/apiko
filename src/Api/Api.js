@@ -9,6 +9,8 @@ const urls = {
   addProduct: '/api/products',
   product: '/api/products',
   upload: '/api/upload/images',
+  seller: '/api/users',
+  sellerProducts: '/api/users​'
 }
 
 export const Auth = {
@@ -87,6 +89,14 @@ export  const Products = {
 
   getProduct(id){
     return axios.get(`${urls.product}/${id}`)
+  },
+
+  getSeller(id) {
+    return axios.get(`${urls.seller}/${id}`);
+  },
+
+  getSellerProducts(id) {
+    return axios.get(`${urls.seller}/${id}/products`);
   }
 }// end
 

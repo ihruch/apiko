@@ -5,7 +5,8 @@ import { routes } from "./../router";
 import LatestList from './../LatestList/LatestListContainer';
 import Header from '../../components/Header/HeaderContainer';
 import Product from './../Product/ProductContainer';
-import Test from './../../components/test';
+import Seller from './../Seller/SellerContainer';
+
 import s from './Home.module.scss';
 
 
@@ -17,7 +18,8 @@ function Home(){
       <div className={s.container}>
         <Switch>
           <Route exact path={routes.home } component={LatestList} />
-          <Route exact path={routes.product} component={Product}    />
+          <Route exact path={routes.product} component={Product}  />
+          <Route path={routes.seller} component={Seller} />
         </Switch> 
       </div> 
       

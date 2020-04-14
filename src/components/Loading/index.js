@@ -14,8 +14,8 @@ const Div = styled.div`
     height: 50px;
     width: 50px;
     border-style: solid;
-    border-width: 5px;
-    border-color: transparent black transparent black;
+    border-width: 2px;
+    border-color: transparent black transparent #ccc;
     margin: auto;
     border-radius: 50%; 
     animation: ${rotate} 2s linear infinite;

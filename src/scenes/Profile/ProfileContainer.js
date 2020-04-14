@@ -13,7 +13,8 @@ const mapDispatchToProps = {
 };
 
 const enhance = compose(
-    withRouter
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps)
 );
 
 export default enhance(ProfileView);
