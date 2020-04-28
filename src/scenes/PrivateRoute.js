@@ -5,18 +5,16 @@ import { connect } from 'react-redux';
 
 
 const PrivateRoute = ({component: Component, ...rest}) => {
-    // console.log('PrivateRoute rest', rest.viewer)
-    return(
+    //console.log('PrivateRoute rest', rest.viewer)
+    return (
       <Route 
         {...rest} 
-        render={ (props) =>    
+        render={(props) =>    
             rest.viewer ? <Component {...props} />  :  <Redirect to={routes.login} /> 
         }
       />  
     );
 }
-
-// export default PrivateRoute;
 
 const mapStateToProps = state => ({viewer: state.viewer.user })
 export default connect(mapStateToProps)(PrivateRoute);

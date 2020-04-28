@@ -17,9 +17,9 @@ function Home(){
       <Header />
       <div className={s.container}>
         <Switch>
-          <Route exact path={routes.home } component={LatestList} />
-          <Route exact path={routes.product} component={Product}  />
-          <Route path={routes.seller} component={Seller} />
+          <Route exact path={routes.home}    component={LatestList} />
+          <Route exact path={routes.product} component={Product}    />
+          <Route exact path={routes.seller}  component={Seller}     />
         </Switch> 
       </div> 
       

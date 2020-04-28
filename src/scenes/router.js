@@ -3,35 +3,39 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './Home/Home.js';
 import NotFound from './NotFound/NotFound'
 import Auth from './Auth/Auth.js';
-import Inbox from './Inbox/Inbox';
+import Inbox from './Inbox/InboxContainer';
 import PrivateRoute from './PrivateRoute';
 import AddProduct from './AddProduct/AddProductContainer';
 import Profile from './Profile/ProfileView';
 
+
 export const routes = {
-  home: '/',
-  auth: '/auth',
-  login: '/auth/login',
-  register: '/auth/register',
-  inbox: '/inbox',
+  home:       '/',
+  auth:       '/auth',
+  login:      '/auth/login',
+  register:   '/auth/register',
+  inbox:      '/inbox',
   addProduct: '/add-product',
-  product: '/products/:id',
-  profile: '/profile',
-  seller: '/users/:id'
+  product:    '/products/:id',
+  profile:    '/profile',
+  seller:     '/users/:id',
+  chat:       '/inbox/:id',
 };
 
 class SwitchRouters extends React.Component {
 
   render() {
     return(
-        <Switch >
-          <Route path={routes.auth} component={Auth} />
-          <PrivateRoute path={routes.inbox} component={Inbox}/>
-          <PrivateRoute path={routes.profile} component={Profile}/>
-          <Route path={routes.addProduct} component={AddProduct} />
-          <Route path={routes.home} component={Home} />
-          <Route component={NotFound} />
-        </Switch>
+      <Switch >
+        <Route exact path={routes.home} component={Home} />
+        <Route path={routes.auth} component={Auth} />
+        <PrivateRoute exact path={routes.inbox} component={Inbox}/>
+        <PrivateRoute exact path={routes.chat} component={Inbox}/>
+
+        <PrivateRoute exact path={routes.profile} component={Profile} />
+        <Route exact path={routes.addProduct} component={AddProduct} />
+        <Route component={NotFound} />
+      </Switch>
     );
   }
 }

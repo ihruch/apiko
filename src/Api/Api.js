@@ -6,11 +6,12 @@ const urls = {
   register:  '/api/auth/register',
   getViewer: '/api/account/user',
   productsLatest: '/api/products/latest',
-  addProduct: '/api/products',
-  product: '/api/products',
+  // addProduct: '/api/products',
+  product:    '/api/products',
   upload: '/api/upload/images',
   seller: '/api/users',
-  sellerProducts: '/api/users​'
+  sellerProducts: '/api/users​',
+  chats: '/api/chats',
 }
 
 export const Auth = {
@@ -84,7 +85,7 @@ export  const Products = {
   },
 
   addProduct(body) {
-    return axios.post(urls.addProduct, body);
+    return axios.post(urls.product, body);
   },
 
   getProduct(id){
@@ -103,5 +104,25 @@ export  const Products = {
 export const Upload = {
   uploadImage(body) {
     return axios.post(urls.upload, body);
+  }
+}
+
+export const Chats  = {
+  createChat(productId) {
+    return axios.post(`${urls.product}/${productId}/createChat`);
+  },
+
+  fetchChats() {
+    return axios.get(urls.chats);
+  }
+}
+
+export const Messages  = {
+  sendMessage(chatId, text) {
+    return axios.post(`${urls.chats}/${chatId}/messages`, {text});
+  },
+
+  fetchMessages(chatId) {
+    return axios.get(`${urls.chats}/${chatId}/messages`);
   }
 }

@@ -19,7 +19,11 @@ function HeaderView ({children, viewer, handleLogout, bgDark, isShowPopover, han
         <div className={s.topLine}>
          
           <div className={s.left}>
-            <Link to={routes.home} className={s.logo}> apiko </Link>
+            <Link to={routes.home} className={s.logo}>       apiko </Link>
+            <Link to={routes.addProduct} className={s.logo}> add </Link>
+            <Link to={routes.inbox} className={s.logo}>      inb </Link>
+   
+
           </div> 
          
           <div className={s.right}>

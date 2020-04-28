@@ -53,4 +53,4 @@ const Avatar = ({viewer, circle, width, height, className, src, badge }) => {
     
 }
 
-export default Avatar;
+export default React.memo(Avatar);

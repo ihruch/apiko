@@ -33,8 +33,10 @@ class FormContainer extends Component {
     formData.append('image', event.target.files[0]);
     this.setState({formData: formData}) 
   }
+
   uploadImg = () => {
-    return Api.Upload.uploadImage(this.state.formData) ;     
+    return Api.Upload.uploadImage(this.state.formData);   
+  //  this.setState({formData:null});  
   }
 
 
@@ -59,6 +61,7 @@ class FormContainer extends Component {
       <Formik
         initialValues = {initValueFields}
         validationSchema = { validationSchema }
+      
         onSubmit={ async values => {
          //console.log('Formik values 1', values);
          

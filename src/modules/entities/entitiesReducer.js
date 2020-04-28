@@ -5,6 +5,12 @@ const INITIAL_STATE = {
     },
     users: {
         // [id]: {}
+    },
+    chats: {
+        // [id]: {}
+    },
+    messages: {
+        // [id]: {}
     }
 
 }

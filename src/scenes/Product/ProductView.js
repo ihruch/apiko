@@ -2,9 +2,13 @@ import React from 'react'
 import s from './Product.module.scss';
 import Button from './../../components/Button/Button';
 import {Link, generatePath} from 'react-router-dom';
+import Modal from 'react-modal';
 import {routes} from './../router';
+import ContacSellerModal from './../ContacSellerModal/ContacSellerModalContainer.js';
 
-const ProductView = ({ product, isLoading, owner}) => {
+Modal.setAppElement('#root');
+
+const ProductView = ({ product, isLoading, owner, isModalOpen, toggleModal}) => {
     const shouldUpdate = isLoading || !owner;
 
     if(!product) {
@@ -51,6 +55,8 @@ const ProductView = ({ product, isLoading, owner}) => {
                         height="47px" 
                         width="259px" 
                         className={s.btnChatSeller}
+                        type='button'
+                        onClick={toggleModal}
                     > Chat with seller
                     </Button>
 
@@ -64,6 +70,10 @@ const ProductView = ({ product, isLoading, owner}) => {
                     </Button>
                 </div>
             </div>
+
+            <Modal isOpen={isModalOpen} onRequestClose={toggleModal}>
+                <ContacSellerModal productId={product.id} onClose={toggleModal} />
+            </Modal>    
         </div>
     )
 }

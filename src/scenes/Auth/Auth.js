@@ -15,8 +15,8 @@ function Auth({viewer}) {
       <Header />
       <Switch>
         {viewer && <Redirect to={routes.home} />} 
-        <Route exact path={routes.login} component={Login} />
-        <Route exact path={routes.register} component={Register} />
+        <Route path={routes.login} component={Login} exact/>
+        <Route path={routes.register} component={Register} exact/>
         <Redirect from={routes.auth} to={routes.login} />
       </Switch>
     </div>

@@ -9,11 +9,13 @@ export const Product = new schema.Entity("products",
 );
 
 export const sellerProduct = new schema.Entity("products");
+export const Chat = new schema.Entity('chats');
+export const Message = new schema.Entity('messages');
 
 
-export const sellerList = {list: [sellerProduct]}
-
-
-
+export const sellerList = {list: [sellerProduct]};
 
 export const ProductList = [Product];
+export const ChatCollection = [Chat];
+export const MessageCollection = [Message];
+

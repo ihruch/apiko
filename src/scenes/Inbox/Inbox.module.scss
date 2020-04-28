@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+
+}
+.aside{
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 200px;
+    border-right: 1px solid #ccc;    
+}
+.main {
+    flex: 1;
+}
