@@ -27,7 +27,7 @@ function Reducer(state = INITIAL_STATE, action){
 
             return accState;
         }, {...state });
-         
+
     }
     return state;
 }

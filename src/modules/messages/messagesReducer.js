@@ -16,8 +16,7 @@ const INITIAL_STATE = {
       isError: false,
     },
 };
-//sendMessage
-//fetchMessages
+
 
 export default handleActions({
     [ actions.sendMessage.start ]: ( state, action ) => ({

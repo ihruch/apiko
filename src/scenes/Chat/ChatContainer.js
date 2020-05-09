@@ -7,8 +7,8 @@ import {withRouter} from 'react-router-dom';
 import ChatView from './ChatView';
 
 const mapStateToProps = (state, props) => ({
-    isLoading: state.messages.fetchMessages.isLoading,
     items: messagesSelectors.getMessages(state, props.match.params.id),
+    isLoading: state.messages.fetchMessages.isLoading,
 });
 
 const mapDispatchToProps = {
@@ -28,11 +28,12 @@ const enhancer = compose(
         }
     }),
     lifecycle({
-        componentDidMount() {
-            debugger;
-           
-           this.props.fetchMessages(this.props.match.params.id);
-           
+        async componentDidMount() {
+            try {
+                await this.props.fetchMessages(this.props.match.params.id);
+            } catch (error) {
+                console.log('error', error.message)
+            }
         }
     })
 

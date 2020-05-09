@@ -8,7 +8,7 @@ import Api from './../../Api';
 
 const mapStateToProps = (state, props) => ({
     isLoading: state.chats.fetchChats.isLoading,
-    items: chatsSelectors.getChats(state),
+    items: chatsSelectors.getChatsWithLastMessage(state),
 });
 
 const mapDispatchToProps = {

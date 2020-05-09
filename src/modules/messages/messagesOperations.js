@@ -7,7 +7,9 @@ import Api, { schemas } from '../../Api';
 
 export function sendMessage(chatId, text) {
 
-    return async function(dispatch) {
+    return async function(dispatch, getState) {
+        const state =  getState(); // редакс санк позволяет тут получить state
+
         try {
             dispatch(actions.sendMessage.start());
 
@@ -34,7 +36,7 @@ export function fetchMessages(chatId) {
 
             let { result, entities} = normalize(res.data, schemas.MessageCollection); 
            
-            dispatch(actions.fetchMessages.success({ result, entities}));
+            dispatch(actions.fetchMessages.success({ chatId, result, entities}));
 
         } catch(error){
             dispatch(actions.fetchMessages.error({message: error.message}));
